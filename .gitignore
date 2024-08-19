@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+/.vs/Rasterizer
+/Application/x64
+/Bin/Application.pdb
+/Deps/SFML
+/x64/Debug/Application.pdb
