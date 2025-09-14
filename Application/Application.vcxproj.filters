@@ -7,6 +7,12 @@
     <Filter Include="Source\Renderer">
       <UniqueIdentifier>{9c9c77bf-c0c1-4272-9f12-f16d4685e34e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Math">
+      <UniqueIdentifier>{34717e22-acc7-4fed-89a3-ee70006e5b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Math\Numeric">
+      <UniqueIdentifier>{803218a1-6f22-4262-81e5-7ffb434cba43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp">
@@ -15,6 +21,8 @@
     <ClCompile Include="Source\Renderer\Buffer.cpp">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Renderer\Font.cpp" />
+    <ClCompile Include="Source\Renderer\Format.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Main.h">
@@ -22,6 +30,26 @@
     </ClInclude>
     <ClInclude Include="Source\Renderer\Buffer.h">
       <Filter>Source\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Font.h" />
+    <ClInclude Include="Source\Renderer\Format.h" />
+    <ClInclude Include="Source\Math\Math.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Numeric\Color.h">
+      <Filter>Source\Math\Numeric</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Numeric\Float2.h">
+      <Filter>Source\Math\Numeric</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Numeric\Float4.h">
+      <Filter>Source\Math\Numeric</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Numeric\Int2.h">
+      <Filter>Source\Math\Numeric</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Math\Numeric\Common.h">
+      <Filter>Source\Math\Numeric</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

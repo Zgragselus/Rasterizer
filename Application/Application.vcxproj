@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -141,10 +141,20 @@
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Renderer\Buffer.cpp" />
+    <ClCompile Include="Source\Renderer\Font.cpp" />
+    <ClCompile Include="Source\Renderer\Format.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Main.h" />
+    <ClInclude Include="Source\Math\Math.h" />
+    <ClInclude Include="Source\Math\Numeric\Color.h" />
+    <ClInclude Include="Source\Math\Numeric\Common.h" />
+    <ClInclude Include="Source\Math\Numeric\Float2.h" />
+    <ClInclude Include="Source\Math\Numeric\Float4.h" />
+    <ClInclude Include="Source\Math\Numeric\Int2.h" />
     <ClInclude Include="Source\Renderer\Buffer.h" />
+    <ClInclude Include="Source\Renderer\Font.h" />
+    <ClInclude Include="Source\Renderer\Format.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
