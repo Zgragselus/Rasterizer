@@ -13,6 +13,12 @@
     <Filter Include="Source\Math\Numeric">
       <UniqueIdentifier>{803218a1-6f22-4262-81e5-7ffb434cba43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Renderer\Device">
+      <UniqueIdentifier>{3fa86f32-22bf-42f4-ad4f-8b44c231ff41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Renderer\Device\Command">
+      <UniqueIdentifier>{bffe4076-c295-41a0-ac27-02b40e1454af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp">
@@ -21,8 +27,18 @@
     <ClCompile Include="Source\Renderer\Buffer.cpp">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Renderer\Font.cpp" />
-    <ClCompile Include="Source\Renderer\Format.cpp" />
+    <ClCompile Include="Source\Renderer\Font.cpp">
+      <Filter>Source\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\Format.cpp">
+      <Filter>Source\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\Device\ThreadPool.cpp">
+      <Filter>Source\Renderer\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\Device\CommandList.cpp">
+      <Filter>Source\Renderer\Device</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Main.h">
@@ -31,8 +47,6 @@
     <ClInclude Include="Source\Renderer\Buffer.h">
       <Filter>Source\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Renderer\Font.h" />
-    <ClInclude Include="Source\Renderer\Format.h" />
     <ClInclude Include="Source\Math\Math.h">
       <Filter>Source\Math</Filter>
     </ClInclude>
@@ -50,6 +64,21 @@
     </ClInclude>
     <ClInclude Include="Source\Math\Numeric\Common.h">
       <Filter>Source\Math\Numeric</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Font.h">
+      <Filter>Source\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Format.h">
+      <Filter>Source\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Device\ThreadPool.h">
+      <Filter>Source\Renderer\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Device\Command\Command.h">
+      <Filter>Source\Renderer\Device\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Device\CommandList.h">
+      <Filter>Source\Renderer\Device</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

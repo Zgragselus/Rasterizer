@@ -15,5 +15,5 @@ namespace Renderer
 	/*
 	* @brief The size of each format in bytes.
 	*/
-	//static size_t FormatSize[];
+	static size_t FormatSize[];
 }

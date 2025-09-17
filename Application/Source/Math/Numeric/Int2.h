@@ -279,7 +279,7 @@ namespace Math
 				return int2(-x, -y);
 			}
 
-			/**
+			/*
 			 * @brief Subscript operator.
 			 * @param index The index to access (0 for x, 1 for y).
 			 * @return A reference to the element at the given index.
