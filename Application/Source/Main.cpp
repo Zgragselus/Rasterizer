@@ -3,22 +3,26 @@
 #include "Renderer/Font.h"
 #include <iostream>
 
+size_t mWidth = 1280;
+size_t mHeight = 720;
+float mScale = 1.0f;
+
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(sf::Vector2u(1280, 960)), "Renderer");
+    sf::RenderWindow window(sf::VideoMode(sf::Vector2u((size_t)(mWidth * mScale), (size_t)(mHeight * mScale))), "Renderer");
 
-    Renderer::Buffer buffer(4, 640 * 480);
+    Renderer::Buffer buffer(4, mWidth, mHeight);
     buffer.Clear();
 
     Renderer::Font font;
 
-    sf::Texture texture(sf::Vector2u(640, 480));
+    sf::Texture texture(sf::Vector2u(mWidth, mHeight));
     texture.update((const uint8_t*)buffer.GetData());
 
     sf::Sprite sprite(texture);
-    sprite.setScale(sf::Vector2f(2.0f, 2.0f));
+    sprite.setScale(sf::Vector2f(mScale, mScale));
 
-    float fps;
+    float fps = 0.0f;
     sf::Clock clock = sf::Clock::Clock();
     sf::Time previousTime = clock.getElapsedTime();
     sf::Time currentTime;
@@ -35,14 +39,15 @@ int main()
 
         window.clear();
         buffer.Clear();
-		font.Print(buffer, "Hello, World!", 10, 10);
+        font.Print(buffer, std::string("This is Rast3riz3r!"), 10, 10);
+        font.Print(buffer, std::string("FPS: ") + std::to_string(floor(fps)), 10, 30);
         texture.update((const uint8_t*)buffer.GetData());
         window.draw(sprite);
         window.display();
 
         currentTime = clock.getElapsedTime();
         fps = 1.0f / (currentTime.asSeconds() - previousTime.asSeconds()); // the asSeconds returns a float
-        std::cout << "fps =" << floor(fps) << std::endl; // flooring it will make the frame rate a rounded number
+        //std::cout << "fps =" << floor(fps) << std::endl; // flooring it will make the frame rate a rounded number
         previousTime = currentTime;
     }
 

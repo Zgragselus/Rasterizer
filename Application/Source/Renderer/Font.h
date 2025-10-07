@@ -145,6 +145,8 @@ namespace Renderer
     public:
         void Print(Buffer& buffer, const std::string& s, int x, int y)
         {
+			size_t height = buffer.GetElementCount() * buffer.GetElementSize() / buffer.GetStride();
+
 			for (size_t i = 0; i < s.size(); i++)
 			{
 				char c = s[i];
@@ -157,9 +159,9 @@ namespace Renderer
 						{
 							int bufferX = x + i * 8 + col;
 							int bufferY = y + row;
-							if (bufferX >= 0 && bufferX < (int)buffer.GetElementCount() / 480 && bufferY >= 0 && bufferY < 480)
+							if (bufferX >= 0 && bufferX < (int)buffer.GetElementCount() / height && bufferY >= 0 && bufferY < height)
 							{
-								((uint32_t*)buffer.GetData())[bufferY * (buffer.GetElementCount() / 480) + bufferX] = 0xFFFFFFFF; // White pixel
+								((uint32_t*)buffer.GetData())[bufferY * (buffer.GetElementCount() / height) + bufferX] = 0xFFFFFFFF; // White pixel
 							}
 						}
 					}

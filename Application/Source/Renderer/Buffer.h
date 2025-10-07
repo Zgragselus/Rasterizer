@@ -13,6 +13,8 @@ namespace Renderer
 		uint32_t mElementSize;
 		uint32_t mElementCount;
 
+		uint32_t mStride;
+
 	public:
 		/**
 		* @brief Constructs a buffer with the specified element size and count. Aligned at 64-byte boundaries for AVX-512 friendliness.
@@ -20,6 +22,11 @@ namespace Renderer
 		* @param elementCount The number of elements in the buffer.
 		*/
 		Buffer(uint32_t elementSize, uint32_t elementCount);
+
+		Buffer(uint32_t elementSize, uint32_t width , uint32_t height) : Buffer(elementSize, width * height)
+		{
+			mStride = width * elementSize;
+		}
 
 		/**
 		 * @brief Destructor. Frees the allocated memory.
@@ -49,6 +56,12 @@ namespace Renderer
 		* @return Number of elements in the buffer.
 		*/
 		uint32_t GetElementCount() const { return mElementCount; }
+		
+		/**
+		 * @brief Get the stride (width in bytes) of the buffer.
+		 * @return The stride of the buffer in bytes.
+		 */
+		uint32_t GetStride() const { return mStride; }
 
 		/**
 		 * @brief Fills the buffer with random data.

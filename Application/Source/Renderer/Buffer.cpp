@@ -1,5 +1,6 @@
 #include "Buffer.h"
 #include <stdlib.h>
+#include <string.h>
 
 namespace Renderer
 {
@@ -17,9 +18,11 @@ namespace Renderer
 
 	void Buffer::Clear()
 	{
-		for (uint32_t i = 0; i < mSize; i++)
+		/*for (uint32_t i = 0; i < mSize; i++)
 		{
 			((uint8_t*)mData)[i] = rand() % 255;
-		}
+		}*/
+
+		memset(mData, 0, mSize);
 	}
 }
