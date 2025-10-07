@@ -1,21 +1,22 @@
 #include "Main.h"
 #include "Renderer/Buffer.h"
+#include "Renderer/Font.h"
 #include <iostream>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1280, 960), "Renderer");
+    sf::RenderWindow window(sf::VideoMode(sf::Vector2u(1280, 960)), "Renderer");
 
     Renderer::Buffer buffer(4, 640 * 480);
     buffer.Clear();
 
-    sf::Texture texture;
-    texture.create(640, 480);
-    texture.update((const sf::Uint8*)buffer.GetData());
+    Renderer::Font font;
 
-    sf::Sprite sprite;
-    sprite.setTexture(texture);
-    sprite.setScale(2.0f, 2.0f);
+    sf::Texture texture(sf::Vector2u(640, 480));
+    texture.update((const uint8_t*)buffer.GetData());
+
+    sf::Sprite sprite(texture);
+    sprite.setScale(sf::Vector2f(2.0f, 2.0f));
 
     float fps;
     sf::Clock clock = sf::Clock::Clock();
@@ -24,16 +25,18 @@ int main()
 
     while (window.isOpen())
     {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
+		while (const std::optional event = window.pollEvent())
+		{
+            if (event->is<sf::Event::Closed>())
+            {
                 window.close();
-        }
+            }
+		}
 
         window.clear();
         buffer.Clear();
-        texture.update((const sf::Uint8*)buffer.GetData());
+		font.Print(buffer, "Hello, World!", 10, 10);
+        texture.update((const uint8_t*)buffer.GetData());
         window.draw(sprite);
         window.display();
 

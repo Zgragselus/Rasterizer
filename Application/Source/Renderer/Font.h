@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Buffer.h"
+#include <string>
+
 namespace Renderer
 {
 	class Font 
@@ -8,7 +11,7 @@ namespace Renderer
         /**
         * @brief The font data.
         */
-        char mFont[128][8] = {
+        unsigned char mFont[128][8] = {
             { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0000 (nul)
             { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0001
             { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0002
@@ -140,6 +143,28 @@ namespace Renderer
         };
 
     public:
-
+        void Print(Buffer& buffer, const std::string& s, int x, int y)
+        {
+			for (size_t i = 0; i < s.size(); i++)
+			{
+				char c = s[i];
+				if (c < 0 || c > 127) continue; // ignore non-ASCII characters
+				for (int row = 0; row < 8; row++)
+				{
+					for (int col = 0; col < 8; col++)
+					{
+						if (mFont[(int)c][row] & (1 << col))
+						{
+							int bufferX = x + i * 8 + col;
+							int bufferY = y + row;
+							if (bufferX >= 0 && bufferX < (int)buffer.GetElementCount() / 480 && bufferY >= 0 && bufferY < 480)
+							{
+								((uint32_t*)buffer.GetData())[bufferY * (buffer.GetElementCount() / 480) + bufferX] = 0xFFFFFFFF; // White pixel
+							}
+						}
+					}
+				}
+			}
+        }
 	};
 }

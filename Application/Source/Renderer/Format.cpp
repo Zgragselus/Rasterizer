@@ -5,7 +5,7 @@ namespace Renderer
 	/*
 	* @brief The size of each format in bytes.
 	*/
-	size_t FormatSize[] = 
+	size_t FormatSize[1] = 
 	{ 
 		4 
 	};

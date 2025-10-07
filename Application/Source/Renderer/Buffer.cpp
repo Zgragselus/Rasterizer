@@ -7,12 +7,12 @@ namespace Renderer
 		: mElementSize(elementSize), mElementCount(elementCount)
 	{
 		mSize = mElementSize * mElementCount;
-		mData = new uint8_t[mSize];
+		mData = _aligned_malloc(mSize, 64);
 	}
 
 	Buffer::~Buffer()
 	{
-		delete[] mData;
+		_aligned_free(mData);
 	}
 
 	void Buffer::Clear()

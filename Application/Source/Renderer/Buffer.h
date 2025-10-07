@@ -14,14 +14,45 @@ namespace Renderer
 		uint32_t mElementCount;
 
 	public:
+		/**
+		* @brief Constructs a buffer with the specified element size and count. Aligned at 64-byte boundaries for AVX-512 friendliness.
+		* @param elementSize The size of each element in bytes.
+		* @param elementCount The number of elements in the buffer.
+		*/
 		Buffer(uint32_t elementSize, uint32_t elementCount);
+
+		/**
+		 * @brief Destructor. Frees the allocated memory.
+		 */
 		virtual ~Buffer();
 
-		void Clear();
-
+		/**
+		 * @brief Get pointer to buffer data.
+		 * @return Pointer to buffer data.
+		 */
 		void* GetData() const { return mData; }
+
+		/**
+		 * @brief Get buffer size in bytes.
+		 * @return Size of the buffer in bytes.
+		 */
 		uint32_t GetSize() const { return mSize; }
+
+		/**
+		* @brief Gets the size of each element in bytes.
+		* @return The size of each element in bytes.
+		*/
 		uint32_t GetElementSize() const { return mElementSize; }
+
+		/**
+		* @brief Get number of elements in the buffer.
+		* @return Number of elements in the buffer.
+		*/
 		uint32_t GetElementCount() const { return mElementCount; }
+
+		/**
+		 * @brief Fills the buffer with random data.
+		 */
+		void Clear();
 	};
 }
